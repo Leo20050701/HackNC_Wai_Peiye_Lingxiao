@@ -31,7 +31,7 @@ def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) ->
             return
         
         for td in td_tags:
-            result = result + " " + str(td.text)
+            result = result + " " + str(td.text) + "\n"
 
         return result
     
@@ -39,7 +39,6 @@ def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) ->
         return 1
     
 
+print(retrive_course("2024 Spring", "MATH", "110"))
 
 
-period = re.findall(r"  (0[0-9][0-9].+?)(?=  0[0-9][0-9]|$)", retrive_course("2024 Spring", "COMP", "210"))
-print(period)
