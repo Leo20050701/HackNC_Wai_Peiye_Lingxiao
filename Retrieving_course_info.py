@@ -24,7 +24,7 @@ def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) ->
     }
     response = session.post(search_url, data=payload, headers={'User-Agent': 'Mozilla/5.0'})
     keys = [
-        "Peiord",
+        "Period",
         "Course_Number",
         "Intro",
         "Term",
@@ -50,7 +50,7 @@ def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) ->
         HL_Test: bool = True
         for td in td_tags[3:]:
             td = td.text
-
+            print(td)
             if td == "" and HL_Test:
                 course_list.append(course_info)
                 course_info = {
@@ -59,16 +59,26 @@ def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) ->
                 }
                 loop = 0
     
-            elif re.search("[0-9].+[H,L]", td):
+            elif re.match("^[0-9].+[H,L]", td) and HL_Test:
+                course_list.append(course_info)
                 HL_Test = False
+                moditifed_number: str = td
                 course_info = {
                     "Name": subject_abbr,
-                    "Number": td,
+                    "Number": moditifed_number,
                 }
                 loop = 0
     
             elif td == "" and not HL_Test:
                 loop = 0
+                if "Period" in course_info:
+                    course_list.append(course_info)
+
+                course_info = {
+                    "Name": subject_abbr,
+                    "Number": moditifed_number,
+                }
+
             else:
                 key = keys[loop] 
                 course_info[key] = td
@@ -80,5 +90,25 @@ def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) ->
     else:
         return 1
     
-print(retrive_course("2024 Sprint", "CHEM", "101"))
+
+def write_dict_to_csv(data_list, filename):
+    if not data_list:
+        return 1
+     
+    fieldnames = data_list[0].keys()
+
+    with open(filename, mode='a', newline='', encoding='utf-8') as file:
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+
+        writer.writeheader()
+
+        for row in data_list:
+            writer.writerow(row)
+
+
+
+
+data_list = retrive_course("2024 Sprint", "CHEM", "101")
+print(data_list)
+write_dict_to_csv(data_list, "output.csv")
 
