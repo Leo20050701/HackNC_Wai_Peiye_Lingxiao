@@ -1,13 +1,12 @@
 import requests
+import re
 from bs4 import BeautifulSoup
 import csv
 
-def append_to_csv(data, csv_file):
-    with open(csv_file, 'a', newline='') as csvfile:
-        csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(data)
 
-def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -> None:
+def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) -> list:
+    """Retrive raw data from website"""
+    result: str = ""
     session = requests.Session()
 
     # Initial page to get CSRF token
@@ -25,36 +24,91 @@ def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -
         'catalog_number': catalog_number
     }
     response = session.post(search_url, data=payload, headers={'User-Agent': 'Mozilla/5.0'})
-
+    keys = [
+        "Period",
+        "Course_Number",
+        "Intro",
+        "Term",
+        "Hours",
+        "Date",
+        "Time",
+        "Building",
+        "Format",
+        "Instructor",
+        "Seats"
+    ]
+    
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
+        course_list: list[dict] = list()
 
-        # Find all <tr> tags
-        tr_tags = soup.find_all('tr')
+        td_tags = soup.find_all('td')
+        loop = 0
+        course_info = {
+            "Name": subject_abbr,
+            "Number": catalog_number,
+        }
+        HL_Test: bool = True
+        for td in td_tags[3:]:
+            td = td.text
+            print(td)
+            if td == "" and HL_Test:
+                course_list.append(course_info)
+                course_info = {
+                    "Name": subject_abbr,
+                    "Number": catalog_number,
+                }
+                loop = 0
+    
+            elif re.match("^[0-9].+[H,L]", td) and HL_Test:
+                course_list.append(course_info)
+                HL_Test = False
+                moditifed_number: str = td
+                course_info = {
+                    "Name": subject_abbr,
+                    "Number": moditifed_number,
+                }
+                loop = 0
+    
+            elif td == "" and not HL_Test:
+                loop = 0
+                if "Period" in course_info:
+                    course_list.append(course_info)
 
-        if not tr_tags:
-            print("No course information found.")
-        else:
-            # Specify the CSV file name
-            csv_file = "output.csv"
-            
-            for tr in tr_tags:
-                data = [subject_abbr, catalog_number]  # Add subject abbreviation and catalog number as the first two columns
-                td_tags = tr.find_all('td')
-                for td in td_tags:
-                    strong_tag = td.find('strong')
-                    if strong_tag is None:  # Ignore <td> elements containing <strong> tags
-                        text = td.text.strip()  # Remove leading/trailing whitespace
-                        if text:  # Check if the text is not empty
-                            data.append(text)
-                # Append the data to the CSV file for each <tr> tag
-                append_to_csv(data, csv_file)
+                course_info = {
+                    "Name": subject_abbr,
+                    "Number": moditifed_number,
+                }
 
-            print("Data appended to CSV file.")
-
+            else:
+                key = keys[loop] 
+                course_info[key] = td
+                loop += 1
+        
+        course_list.append(course_info)
+        return course_list
+    
     else:
         print("Failed to retrieve course information. Please check your inputs and the website.")
 
-# Example usage:
-retrieve_course("2024 Spring", "COMP", "210")
-retrieve_course("2024 Spring", "MATH", "110")
+def write_dict_to_csv(data_list, filename):
+    if not data_list:
+        return 1
+     
+    fieldnames = data_list[0].keys()
+
+    with open(filename, mode='a', newline='', encoding='utf-8') as file:
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+
+        writer.writeheader()
+
+        for row in data_list:
+            writer.writerow(row)
+
+
+
+
+data_list = retrive_course("2024 Sprint", "CHEM", "101")
+print(data_list)
+write_dict_to_csv(data_list, "output.csv")
+

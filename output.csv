@@ -1,16 +1,22 @@
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-COMP,210
-COMP,210,001,11759,Analysis Of Data Structure,2024 Spring,3.0,01/10/2024 - 05/10/2024,MW 02:05 PM-03:20 PM,Genome Sciences Bldg - Rm G200,In Person On Campus Learners,"Ghani,Muhammad Sayeed",178
-COMP,210,002,9161,Analysis Of Data Structure,2024 Spring,3.0,01/10/2024 - 05/10/2024,MW 04:40 PM-05:55 PM,Stone Center - Rm 0103,In Person On Campus Learners,"Ghani,Muhammad Sayeed",184
-MATH,110
-MATH,110,001,5647,Algebra,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 08:00 AM-08:50 AM,Phillips - Rm 0332,In Person On Campus Learners,None,47
-MATH,110,002,3946,Algebra,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 10:10 AM-11:00 AM,Phillips - Rm 0332,In Person On Campus Learners,None,27
-MATH,110,003,10130,Algebra,2024 Spring,3.0,01/10/2024 - 05/10/2024,TTH 09:30 AM-10:45 AM,Phillips - Rm 0332,In Person On Campus Learners,None,29
-MATH,110,004,10860,Algebra,2024 Spring,3.0,01/10/2024 - 05/10/2024,TTH 12:30 PM-01:45 PM,Phillips - Rm 0332,In Person On Campus Learners,"MCLAUGHLIN,ELIZABETH A",26
-MATH,110,401,9204,Algebra Corequisite,2024 Spring,1.0,01/10/2024 - 05/10/2024,M 03:35 PM-04:25 PM,Phillips - Rm 0228,In Person On Campus Learners,None,29
+Name,Number,Period,Course_Number,Intro,Term,Hours,Date,Time,Building,Format,Instructor,Seats
+CHEM,101,001,2014,Gen Descrip Chem I,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 08:00 AM-08:50 AM,Chapman Hall - Rm 0201,In Person On Campus Learners,"Kratochvil,Huong Tran",171
+CHEM,101,002,3055,Gen Descrip Chem I,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 09:05 AM-09:55 AM,Chapman Hall - Rm 0201,In Person On Campus Learners,"Curtis,Anna Cristina",137
+CHEM,101,003,9311,Gen Descrip Chem I,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 11:15 AM-12:05 PM,Chapman Hall - Rm 0211,In Person On Campus Learners,"Curtis,Anna Cristina",148
+CHEM,101L,401,2261,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,M 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,5
+CHEM,101L,402,2262,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,M 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,18
+CHEM,101L,403,2263,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,M 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,18
+CHEM,101L,405,2265,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,11
+CHEM,101L,406,2879,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,13
+CHEM,101L,407,2266,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,18
+CHEM,101L,409,2268,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,14
+CHEM,101L,410,2269,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,18
+CHEM,101L,411,2270,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,20
+CHEM,101L,413,2272,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,W 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,9
+CHEM,101L,414,2273,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,W 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,18
+CHEM,101L,415,2880,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,W 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,20
+CHEM,101L,417,2276,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,16
+CHEM,101L,418,2277,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,17
+CHEM,101L,419,4697,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,16
+CHEM,101L,421,5224,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,15
+CHEM,101L,422,5225,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,19
+CHEM,101L,423,5226,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,18
