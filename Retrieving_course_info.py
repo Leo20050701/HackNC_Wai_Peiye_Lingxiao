@@ -4,20 +4,27 @@ import re
 from bs4 import BeautifulSoup
 import csv
 import os
+from config import *
 
 
-def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) -> list:
+def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -> list:
     """Retrive raw data from website"""
+    #input type check
+    if not isinstance(session_term, str) or not isinstance(subject_abbr, str) or not isinstance(catalog_number, str):
+        return
+            
+    #input check
+    if session_term not in valid_sessionTerm or not re.match("^[A-Z]{3,4}$") or catalog_number <= 10 or catalog_number >= 1000:
+        return 
+    
     result: str = ""
     session = requests.Session()
 
-    # Initial page to get CSRF token
     initial_page = "https://reports.unc.edu/class-search/"
     response = session.get(initial_page, headers={'User-Agent': 'Mozilla/5.0'})
     soup = BeautifulSoup(response.content, 'html.parser')
     csrf_token = soup.find('input', {'name': 'csrfmiddlewaretoken'})['value']
 
-    # URL for course search
     search_url = "https://reports.unc.edu/class-search/"
     payload = {
         'csrfmiddlewaretoken': csrf_token,
@@ -26,20 +33,7 @@ def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) ->
         'catalog_number': catalog_number
     }
     response = session.post(search_url, data=payload, headers={'User-Agent': 'Mozilla/5.0'})
-    keys = [
-        "Period",
-        "Course_Number",
-        "Intro",
-        "Term",
-        "Hours",
-        "Date",
-        "Time",
-        "Building",
-        "Format",
-        "Instructor",
-        "Seats"
-    ]
-    
+
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
         course_list: list[dict] = list()
@@ -83,7 +77,7 @@ def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) ->
                 }
 
             else:
-                key = keys[loop] 
+                key = keys_csv[loop] 
                 course_info[key] = td
                 loop += 1
         
@@ -91,9 +85,10 @@ def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) ->
         return course_list
     
     else:
-        print("Failed to retrieve course information. Please check your inputs and the website.")
+        return
 
-def write_dict_to_csv(data_list, filename) -> None:
+
+def write_dict_to_csv(data_list: list[dict], filename: str) -> None:
     """Import data to a csv file."""
     if not data_list:
         return 
@@ -110,14 +105,3 @@ def write_dict_to_csv(data_list, filename) -> None:
 
         for row in data_list:
             writer.writerow(row)
-
-
-
-
-data_list = retrive_course("2024 Sprint", "CHEM", "101")
-print(data_list)
-write_dict_to_csv(data_list, "output.csv")
-
-data_list = retrive_course("2024 Sprint", "IDST", "101")
-print(data_list)
-write_dict_to_csv(data_list, "output.csv")
