@@ -38,6 +38,8 @@ def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) ->
     else:
         return 1
     
-print(retrive_course("2024 Spring", "COMP", "210"))
-print(retrive_course("2024 Spring", "COMP", "10"))
-print(retrive_course("2024 Spring", "MATH", "233"))
+
+
+
+period = re.findall(r"  (0[0-9][0-9].+?)(?=  0[0-9][0-9]|$)", retrive_course("2024 Spring", "COMP", "210"))
+print(period)
