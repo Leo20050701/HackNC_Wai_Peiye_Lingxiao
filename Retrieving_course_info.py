@@ -1,7 +1,9 @@
+"""Retrive course info from unc course search and put them into a csv file at certain format."""
 import requests
 import re
 from bs4 import BeautifulSoup
 import csv
+import os
 
 
 def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) -> list:
@@ -91,16 +93,20 @@ def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) ->
     else:
         print("Failed to retrieve course information. Please check your inputs and the website.")
 
-def write_dict_to_csv(data_list, filename):
+def write_dict_to_csv(data_list, filename) -> None:
+    """Import data to a csv file."""
     if not data_list:
-        return 1
-     
+        return 
+
     fieldnames = data_list[0].keys()
+    
+    file_exists = os.path.isfile(filename) and os.path.getsize(filename) > 0
 
     with open(filename, mode='a', newline='', encoding='utf-8') as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
 
-        writer.writeheader()
+        if not file_exists:
+            writer.writeheader()
 
         for row in data_list:
             writer.writerow(row)
@@ -112,3 +118,6 @@ data_list = retrive_course("2024 Sprint", "CHEM", "101")
 print(data_list)
 write_dict_to_csv(data_list, "output.csv")
 
+data_list = retrive_course("2024 Sprint", "IDST", "101")
+print(data_list)
+write_dict_to_csv(data_list, "output.csv")
