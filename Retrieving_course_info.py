@@ -1,20 +1,18 @@
-"""For retrieving course information from UNC website."""
 import requests
 from bs4 import BeautifulSoup
-import re
+import csv
 
-def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) -> str:
-    """Retrive raw data from website"""
-    result: str = ""
+def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -> None:
     session = requests.Session()
 
-    initial_page = "https://reports.unc.edu/class-search/" 
+    # Initial page to get CSRF token
+    initial_page = "https://reports.unc.edu/class-search/"
     response = session.get(initial_page, headers={'User-Agent': 'Mozilla/5.0'})
     soup = BeautifulSoup(response.content, 'html.parser')
     csrf_token = soup.find('input', {'name': 'csrfmiddlewaretoken'})['value']
 
-
-    search_url: str = "https://reports.unc.edu/class-search/" 
+    # URL for course search
+    search_url = "https://reports.unc.edu/class-search/"
     payload = {
         'csrfmiddlewaretoken': csrf_token,
         'term': session_term,
@@ -26,19 +24,30 @@ def retrive_course(session_term: str, subject_abbr: str, catalog_number: str) ->
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
 
-        td_tags = soup.find_all('td')
-        if not td_tags: 
-            return
-        
-        for td in td_tags:
-            result = result + " " + str(td.text) + "\n"
+        # Specify the CSV file name
+        csv_file = "output.csv"
 
-        return result
-    
+        # Open the CSV file for writing
+        with open(csv_file, 'a', newline='') as csvfile:
+            csv_writer = csv.writer(csvfile)
+
+            # Find all <td> tags
+            td_tags = soup.find_all('td')
+
+            if not td_tags:
+                print("No course information found.")
+            else:
+                for td in td_tags:
+                    if td.text == "":
+                        csv_writer.writerow("\n")
+                    # Write the text inside the <td> tag to the CSV file
+                    else:
+                        csv_writer.writerow([td.text])
+
+        print(f"CSV file '{csv_file}' created.")
     else:
         return 1
-    
 
-print(retrive_course("2024 Spring", "MATH", "110"))
-
-
+retrieve_course("2024 Spring", "COMP", "210")
+retrieve_course("2024 Spring", "COMP", "110")
+retrieve_course("2024 Spring", "MATH", "130")
