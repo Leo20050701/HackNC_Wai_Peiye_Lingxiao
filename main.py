@@ -29,8 +29,7 @@ if __name__ == "__main__":
             write_dict_to_csv(retrieve_course(session_term, abbr, number), csv_fileName)
 
     result = find_valid_schedule(csv_fileName, courses_abbr, course_number, earliest_time, latest_time)
-    print(result)
-
+    
     for course_dict, schedule_sequence in zip(result, range(len(result))):
         print(f"\nSchedule {schedule_sequence+1}")
         for course in course_dict:
