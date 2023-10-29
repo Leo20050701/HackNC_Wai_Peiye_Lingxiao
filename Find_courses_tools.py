@@ -32,21 +32,27 @@ def find_subject(course_data: list[dict], subject_abbr: str, subject_number: str
 
 def convert_time_to_float(time_str: str) -> float:
     """Converts a 12-hour format time string to a float representing the time in 24-hour format."""
-    if "PM" in time_str and "12" not in time_str:
-        return float(time_str[0:2]) + 12.0 + float(time_str[3:5]) / 60
+    
+    # Use regex to find time part
+    time_match = re.search(r"([0-9]{2}:[0-9]{2} (AM|PM))", time_str)
+    if time_match:
+        time_str = time_match.group(1)
+        
+        if "PM" in time_str and "12" not in time_str:
+            return float(time_str[0:2]) + 12.0 + float(time_str[3:5]) / 60
+        else:
+            return float(time_str[0:2]) + float(time_str[3:5]) / 60
     else:
-        return float(time_str[0:2]) + float(time_str[3:5]) / 60
+        return None  
 
 
-<<<<<<< HEAD
-=======
 def check_conflict(courses: List[Dict[str, str]]) -> bool:
     """Check if there is a time conflict between courses."""
     for i, course1 in enumerate(courses):
         for j, course2 in enumerate(courses):
             if i >= j:
                 continue
-            intersecting_days = set(course1["Day"]) & set(course2["Day"])
+            intersecting_days = set(find_course_date(course1)["Days"]) & set(find_course_date(course2)["Days"])
             if intersecting_days:
                 start_time1_str, end_time1_str = course1["Time"].split('-')
                 start_time2_str, end_time2_str = course2["Time"].split('-')
@@ -59,7 +65,6 @@ def check_conflict(courses: List[Dict[str, str]]) -> bool:
     return False
 
 
->>>>>>> development_visualization
 def find_time_between(course_data: list[dict], earliest_time: str, latest_time: str) -> list[dict]:
     """Filter course between time A and B."""
     new_data: list[dict] = list()
@@ -96,11 +101,46 @@ def find_time_between(course_data: list[dict], earliest_time: str, latest_time: 
     return new_data
 
 
-def find_course_date(course_data: list[dict]) -> list[dict]:
-    for course in course_data:
-        date_match = re.search(r"^([MTWUF]+)", course["Time"])
-        if date_match:
-            course['Days'] = date_match.group(1)
+def find_valid_schedule(all_course_data: str, courses_abbr: List[str], course_number: List[str], earliest_time: str, latest_time: str) -> List[List[Dict]]:
+    if len(courses_abbr) != len(course_number):
+        return
+    
+    all_course_data = read_csv(all_course_data)
+    course_by_subject: list[list[dict]] = list()
+    potential_valid_schedules: list[list[dict]] = list()
+    final_valid_schedules: list[list[dict]] = list()
+
+    all_course_data = find_time_between(all_course_data, earliest_time, latest_time)
+
+    for abbr, number in zip(courses_abbr, course_number):
+        course = find_subject(all_course_data, abbr, number)
+        if course:
+            course_by_subject.append(course)
+    
+    def find_combinations(picked_so_far: list[dict], remaining_subjects: list[list[dict]]):
+        # Base case: no more subjects to consider
+        if not remaining_subjects:
+            potential_valid_schedules.append(picked_so_far)
+            return
+        
+        # Recursive case
+        current_subject = remaining_subjects[0]
+        for course in current_subject:
+            find_combinations(picked_so_far + [course], remaining_subjects[1:])
+
+    find_combinations([], course_by_subject)
+    if potential_valid_schedules:
+        for i in range(0, len(potential_valid_schedules)):
+            if not check_conflict(potential_valid_schedules[i]):
+                final_valid_schedules.append(potential_valid_schedules[i])
+
+    return final_valid_schedules
+
+def find_course_date(course_data: dict[str: str]) -> list[dict]:
+    date_match = re.search(r"^([MTWHF]+)", course_data["Time"])
+    if date_match:
+        course_data['Days'] = date_match.group(1)
+    
     return course_data  
 
 

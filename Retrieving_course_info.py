@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 import csv
 import os
 from config import *
+from typing import Dict
 
-csv_fileName: str = "output.csv"
 
 def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -> list:
     """Retrive raw data from website"""
@@ -35,6 +35,8 @@ def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -
     }
     response = session.post(search_url, data=payload, headers={'User-Agent': 'Mozilla/5.0'})
 
+    print(f"Retrieving {subject_abbr} {catalog_number}......")
+
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
         course_list: list[dict] = list()
@@ -48,7 +50,6 @@ def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -
         HL_Test: bool = True
         for td in td_tags[3:]:
             td = td.text
-            ##print(td)
             if td == "" and HL_Test:
                 course_list.append(course_info)
                 course_info = {
@@ -57,7 +58,7 @@ def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -
                 }
                 loop = 0
     
-            elif re.match("^[0-9].+[H,L]", td) and HL_Test:
+            elif re.match("^[0-9].+[H,L,I]", td) and HL_Test:
                 course_list.append(course_info)
                 HL_Test = False
                 moditifed_number: str = td
@@ -87,6 +88,7 @@ def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -
             return course_list
     
     else:
+        print(f"Fail to retrieve {subject_abbr} {catalog_number}......")
         return
 
     return
@@ -108,3 +110,13 @@ def write_dict_to_csv(data_list: list[dict], filename: str) -> None:
 
         for row in data_list:
             writer.writerow(row)
+
+def check_values_in_same_csv_row(csv_file_path: str, abbr: str, number: str) -> bool:
+    with open(csv_file_path, mode='r') as file:
+        csv_reader = csv.DictReader(file)
+        
+        for row in csv_reader:
+            if row['Name'] == abbr and row['Number'] == number:
+                return True
+
+    return False 
