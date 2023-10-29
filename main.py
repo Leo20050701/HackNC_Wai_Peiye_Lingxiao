@@ -8,15 +8,18 @@ csv_fileName = "output.csv"
 
 
 if __name__ == "__main__":
-    # Testing...
-    # Main script
-
-    # Sample course data
-    # print(find_course_date(test_data))
     # Test the function
+
+    #Your Session Term
     session_term = "2024 Spring"
+
+    #Subject Abbr
     courses_abbr = ["ECON", "CHEM", "COMP", "CHEM", "BUSI"]
+
+    #Course Number
     course_number = ["410", "101", "210", "101L", "100"]
+
+    #Time range
     earliest_time = "10:00 AM"
     latest_time = "06:00 PM"
     
