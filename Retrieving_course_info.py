@@ -6,6 +6,7 @@ import csv
 import os
 from config import *
 
+csv_fileName: str = "output.csv"
 
 def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -> list:
     """Retrive raw data from website"""
@@ -14,7 +15,7 @@ def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -
         return
             
     #input check
-    if session_term not in valid_sessionTerm or not re.match("^[A-Z]{3,4}$") or catalog_number <= 10 or catalog_number >= 1000:
+    if session_term not in valid_sessionTerm or not re.match("^[A-Z]{3,4}$", subject_abbr) or int(catalog_number) <= 10 or int(catalog_number) >= 1000:
         return 
     
     result: str = ""
@@ -47,7 +48,7 @@ def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -
         HL_Test: bool = True
         for td in td_tags[3:]:
             td = td.text
-            print(td)
+            ##print(td)
             if td == "" and HL_Test:
                 course_list.append(course_info)
                 course_info = {
@@ -82,11 +83,13 @@ def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -
                 loop += 1
         
         course_list.append(course_info)
-        return course_list
+        if "Period" in course_list[0]:
+            return course_list
     
     else:
         return
 
+    return
 
 def write_dict_to_csv(data_list: list[dict], filename: str) -> None:
     """Import data to a csv file."""
