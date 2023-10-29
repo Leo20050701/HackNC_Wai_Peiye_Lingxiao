@@ -36,11 +36,15 @@ def find_time_between(course_data: list[dict], earliest_time: str, latest_time: 
     #Process the begin and end time, from str to float, from 12h to 24h
     if "PM" in earliest_time and "12" not in earliest_time:
         earliest_time = float(earliest_time[0:2]) + 12.0 + float(earliest_time[3:5]) / 60
+    elif not earliest_time:
+        earliest_time = 8.0
     else:
         earliest_time = float(earliest_time[0:2]) + float(earliest_time[3:5]) / 60
 
     if "PM" in latest_time and "12" not in latest_time:
         latest_time = float(latest_time[0:2]) + 12.0 + float(latest_time[3:5]) / 60
+    elif not latest_time:
+        latest_time = 24.0
     else:
         latest_time = float(latest_time[0:2]) + float(latest_time[3:5]) / 60
 
@@ -72,3 +76,9 @@ def find_time_between(course_data: list[dict], earliest_time: str, latest_time: 
                     new_data.append(course)
 
     return new_data
+
+
+def find_course(course_data: list[dict], subject_abbr: str, course_number: str, start_Time: str, end_Time: str) -> list[dict]:
+    """Find course that met all criteria"""
+    #Build input check
+    return find_time_between(find_subject(read_csv(course_data), subject_abbr, course_number), start_Time, end_Time)
