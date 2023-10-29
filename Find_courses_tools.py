@@ -28,6 +28,14 @@ def find_subject(course_data: list[dict], subject_abbr: str, subject_number: str
     return
 
 
+def convert_time_to_float(time_str: str) -> float:
+    """Converts a 12-hour format time string to a float representing the time in 24-hour format."""
+    if "PM" in time_str and "12" not in time_str:
+        return float(time_str[0:2]) + 12.0 + float(time_str[3:5]) / 60
+    else:
+        return float(time_str[0:2]) + float(time_str[3:5]) / 60
+
+
 def find_time_between(course_data: list[dict], earliest_time: str, latest_time: str) -> list[dict]:
     """Filter course between time A and B."""
     new_data: list[dict] = list()
@@ -76,6 +84,7 @@ def find_time_between(course_data: list[dict], earliest_time: str, latest_time: 
                     new_data.append(course)
 
     return new_data
+
 
 
 def find_course(course_data: list[dict], subject_abbr: str, course_number: str, start_Time: str, end_Time: str) -> list[dict]:
