@@ -1,39 +1,36 @@
 Name,Number,Period,Course_Number,Intro,Term,Hours,Date,Time,Building,Format,Instructor,Seats
-MATH,381,001,1623,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 09:05 AM-09:55 AM,Phillips - Rm 0381,In Person On Campus Learners,"Dumitrescu,Olivia Mirela",20
-MATH,381,002,1624,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 10:10 AM-11:00 AM,Phillips - Rm 0381,In Person On Campus Learners,"Naprienko,Iaroslav",30
-MATH,381,003,3380,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 11:15 AM-12:05 PM,Phillips - Rm 0381,In Person On Campus Learners,"Rowan,James Jerry",23
-MATH,381,004,1625,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 01:25 PM-02:15 PM,Phillips - Rm 0381,In Person On Campus Learners,"Wang,Jian",30
+MATH,381,001,1623,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 09:05 AM-09:55 AM,Phillips - Rm 0381,In Person On Campus Learners,"Dumitrescu,Olivia Mirela",13
+MATH,381,002,1624,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 10:10 AM-11:00 AM,Phillips - Rm 0381,In Person On Campus Learners,"Naprienko,Iaroslav",17
+MATH,381,003,3380,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 11:15 AM-12:05 PM,Phillips - Rm 0381,In Person On Campus Learners,"Rowan,James Jerry",2
+MATH,381,004,1625,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 01:25 PM-02:15 PM,Phillips - Rm 0381,In Person On Campus Learners,"Wang,Jian",22
 MATH,381,005,3974,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 02:30 PM-03:20 PM,Phillips - Rm 0381,In Person On Campus Learners,"McCombs,Mark A.",0
-MATH,381,006,5658,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,TTH 09:30 AM-10:45 AM,Phillips - Rm 0381,In Person On Campus Learners,"Qin,Xuqiang",22
-MATH,381,007,5863,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,TTH 12:30 PM-01:45 PM,Phillips - Rm 0383,In Person On Campus Learners,"ROZANSKY,LEV",32
-MATH,381,008,5864,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,TTH 02:00 PM-03:15 PM,Phillips - Rm 0381,In Person On Campus Learners,"Qin,Xuqiang",11
-MATH,381,009,13065,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,TTH 03:30 PM-04:45 PM,Phillips - Rm 0381,In Person On Campus Learners,"hu,mengqi",35
+MATH,381,006,5658,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,TTH 09:30 AM-10:45 AM,Phillips - Rm 0381,In Person On Campus Learners,"Qin,Xuqiang",0
+MATH,381,007,5863,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,TTH 12:30 PM-01:45 PM,Phillips - Rm 0383,In Person On Campus Learners,"ROZANSKY,LEV",21
+MATH,381,008,5864,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,TTH 02:00 PM-03:15 PM,Phillips - Rm 0381,In Person On Campus Learners,"Qin,Xuqiang",0
+MATH,381,009,13065,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,TTH 03:30 PM-04:45 PM,Phillips - Rm 0381,In Person On Campus Learners,"hu,mengqi",26
 MATH,381H,001,9155,Discrete Math,2024 Spring,3.0,01/10/2024 - 05/10/2024,TTH 11:00 AM-12:15 PM,Phillips - Rm 0367,In Person On Campus Learners,"Burkhead,Emily Gamber",27
-CHEM,101,001,2014,Gen Descrip Chem I,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 08:00 AM-08:50 AM,Chapman Hall - Rm 0201,In Person On Campus Learners,"Kratochvil,Huong Tran",171
-CHEM,101,002,3055,Gen Descrip Chem I,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 09:05 AM-09:55 AM,Chapman Hall - Rm 0201,In Person On Campus Learners,"Curtis,Anna Cristina",118
-CHEM,101,003,9311,Gen Descrip Chem I,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 11:15 AM-12:05 PM,Chapman Hall - Rm 0211,In Person On Campus Learners,"Curtis,Anna Cristina",128
+CHEM,101,001,2014,Gen Descrip Chem I,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 08:00 AM-08:50 AM,Murray Hall - Rm G202,In Person On Campus Learners,"Kratochvil,Huong Tran",161
+CHEM,101,002,3055,Gen Descrip Chem I,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 09:05 AM-09:55 AM,Chapman Hall - Rm 0201,In Person On Campus Learners,"Curtis,Anna Cristina",28
+CHEM,101,003,9311,Gen Descrip Chem I,2024 Spring,3.0,01/10/2024 - 05/10/2024,MWF 11:15 AM-12:05 PM,Chapman Hall - Rm 0211,In Person On Campus Learners,"Curtis,Anna Cristina",21
 CHEM,101L,401,2261,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,M 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,0
-CHEM,101L,402,2262,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,M 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,15
-CHEM,101L,403,2263,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,M 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,18
-CHEM,101L,405,2265,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,7
-CHEM,101L,406,2879,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,10
-CHEM,101L,407,2266,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,17
-CHEM,101L,409,2268,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,9
-CHEM,101L,410,2269,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,16
-CHEM,101L,411,2270,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,19
-CHEM,101L,413,2272,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,W 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,2
-CHEM,101L,414,2273,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,W 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,18
-CHEM,101L,415,2880,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,W 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,18
-CHEM,101L,417,2276,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,14
-CHEM,101L,418,2277,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,17
-CHEM,101L,419,4697,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,15
-CHEM,101L,421,5224,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,12
-CHEM,101L,422,5225,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,19
-CHEM,101L,423,5226,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,17
-COMP,210,001,11759,Analysis Of Data Structure,2024 Spring,3.0,01/10/2024 - 05/10/2024,MW 02:05 PM-03:20 PM,Genome Sciences Bldg - Rm G200,In Person On Campus Learners,"Ghani,Muhammad Sayeed",134
-COMP,210,002,9161,Analysis Of Data Structure,2024 Spring,3.0,01/10/2024 - 05/10/2024,MW 04:40 PM-05:55 PM,Stone Center - Rm 0103,In Person On Campus Learners,"Ghani,Muhammad Sayeed",170
-BUSI,100,001,12360,Intro To Business,2024 Spring,1.5,01/10/2024 - 04/30/2024,W 08:00 AM-09:15 AM,McColl Building - Rm 2700,In Person On Campus Learners,"Mittelstadt,Jeffrey Michael",160
-BUSI,100,002,12361,Intro To Business,2024 Spring,1.5,01/10/2024 - 04/30/2024,W 09:30 AM-10:45 AM,McColl Building - Rm 2700,In Person On Campus Learners,"Mittelstadt,Jeffrey Michael",105
-BUSI,100,003,12362,Intro To Business,2024 Spring,1.5,01/10/2024 - 04/30/2024,W 02:00 PM-03:15 PM,McColl Building - Rm 2700,In Person On Campus Learners,"Mittelstadt,Jeffrey Michael",116
-ECON,410,001,2096,Intermediate Microeconomics,2024 Spring,4.0,01/10/2024 - 05/10/2024,TTH 12:30 PM-01:45 PM,Hanes Art Center - Rm 0121,In Person On Campus Learners,"SHERAN-ANDREWS,MICHELLE E",80
-ECON,410,002,2097,Intermediate Microeconomics,2024 Spring,4.0,01/10/2024 - 05/10/2024,TTH 11:00 AM-12:15 PM,Hanes Art Center - Rm 0121,In Person On Campus Learners,"SHERAN-ANDREWS,MICHELLE E",111
+CHEM,101L,402,2262,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,M 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,0
+CHEM,101L,403,2263,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,M 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,0
+CHEM,101L,405,2265,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,0
+CHEM,101L,406,2879,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,1
+CHEM,101L,407,2266,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,0
+CHEM,101L,409,2268,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,0
+CHEM,101L,410,2269,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,1
+CHEM,101L,411,2270,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,T 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,15
+CHEM,101L,413,2272,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,W 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,0
+CHEM,101L,414,2273,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,W 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,0
+CHEM,101L,415,2880,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,W 01:25 PM-04:15 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,0
+CHEM,101L,417,2276,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,0
+CHEM,101L,418,2277,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,2
+CHEM,101L,419,4697,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 01:00 PM-03:50 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,6
+CHEM,101L,421,5224,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,8
+CHEM,101L,422,5225,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,15
+CHEM,101L,423,5226,Quant Chem Lab I,2024 Spring,1.0,01/10/2024 - 05/10/2024,TH 05:30 PM-08:20 PM,Murray Hall - Rm G202,In Person On Campus Learners,None,10
+COMP,210,001,11759,Analysis Of Data Structure,2024 Spring,3.0,01/10/2024 - 05/10/2024,MW 02:05 PM-03:20 PM,Genome Sciences Bldg - Rm G200,In Person On Campus Learners,"Ghani,Muhammad Sayeed",37
+COMP,210,002,9161,Analysis Of Data Structure,2024 Spring,3.0,01/10/2024 - 05/10/2024,MW 04:40 PM-05:55 PM,Stone Center - Rm 0103,In Person On Campus Learners,"Ghani,Muhammad Sayeed",127
+ECON,410,001,2096,Intermediate Microeconomics,2024 Spring,4.0,01/10/2024 - 05/10/2024,TTH 12:30 PM-01:45 PM,Hanes Art Center - Rm 0121,In Person On Campus Learners,"SHERAN-ANDREWS,MICHELLE E",21
+ECON,410,002,2097,Intermediate Microeconomics,2024 Spring,4.0,01/10/2024 - 05/10/2024,TTH 11:00 AM-12:15 PM,Hanes Art Center - Rm 0121,In Person On Campus Learners,"SHERAN-ANDREWS,MICHELLE E",49

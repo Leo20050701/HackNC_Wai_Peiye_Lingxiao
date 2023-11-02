@@ -4,6 +4,7 @@ import csv
 import re
 from itertools import product
 from typing import List, Dict
+from csv_file_operator import *
 
 def read_csv(csv_fileName) -> list[dict]:
     """Read .csv file and store the data into list[dict]."""
@@ -18,12 +19,16 @@ def read_csv(csv_fileName) -> list[dict]:
     return
 
 
-def find_subject(course_data: list[dict], subject_abbr: str, subject_number: str) -> list[dict]:
+def find_subject(course_data: list[dict], subject_abbr: str, subject_number: str, subject_period) -> list[dict]:
     """Find course with chosen subject."""
     new_data: list[dict] = list()
     for course in course_data:
         if course["Name"] == subject_abbr and course["Number"] == subject_number:
-            new_data.append(course)
+            if not subject_period:
+                new_data.append(course)
+            else:
+                if course["Period"] == subject_period:
+                    new_data.append(course)
     
     if new_data:
         return new_data
@@ -101,7 +106,7 @@ def find_time_between(course_data: list[dict], earliest_time: str, latest_time: 
     return new_data
 
 
-def find_valid_schedule(all_course_data: str, courses_abbr: List[str], course_number: List[str], earliest_time: str, latest_time: str) -> List[List[Dict]]:
+def find_valid_schedule(all_course_data: str, courses_abbr: List[str], course_number: List[str], course_period: list[str], earliest_time: str, latest_time: str) -> List[List[Dict]]:
     if len(courses_abbr) != len(course_number):
         return
     
@@ -112,8 +117,8 @@ def find_valid_schedule(all_course_data: str, courses_abbr: List[str], course_nu
 
     all_course_data = find_time_between(all_course_data, earliest_time, latest_time)
 
-    for abbr, number in zip(courses_abbr, course_number):
-        course = find_subject(all_course_data, abbr, number)
+    for abbr, number, period in zip(courses_abbr, course_number, course_period):
+        course = find_subject(all_course_data, abbr, number, period)
         if course:
             course_by_subject.append(course)
     
@@ -136,15 +141,10 @@ def find_valid_schedule(all_course_data: str, courses_abbr: List[str], course_nu
 
     return final_valid_schedules
 
+
 def find_course_date(course_data: dict[str: str]) -> list[dict]:
     date_match = re.search(r"^([MTWHF]+)", course_data["Time"])
     if date_match:
         course_data['Days'] = date_match.group(1)
     
     return course_data  
-
-
-def find_course(course_data: list[dict], subject_abbr: str, course_number: str, start_Time: str, end_Time: str) -> list[dict]:
-    """Find course that met all criteria"""
-    #Build input check
-    return find_time_between(find_subject(read_csv(course_data), subject_abbr, course_number), start_Time, end_Time)

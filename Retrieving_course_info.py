@@ -6,6 +6,7 @@ import csv
 import os
 from config import *
 from typing import Dict
+from csv_file_operator import *
 
 
 def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -> list:
@@ -13,9 +14,11 @@ def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -
     #input type check
     if not isinstance(session_term, str) or not isinstance(subject_abbr, str) or not isinstance(catalog_number, str):
         return
-            
-    #input check
-    if session_term not in valid_sessionTerm or not re.match("^[A-Z]{3,4}$", subject_abbr) or int(catalog_number) <= 10 or int(catalog_number) >= 1000:
+    
+    if not re.match("^[0-9]{2,3}(H|I|L|$)", catalog_number):
+        return
+    
+    if session_term not in VALID_SESSIONTERM or not re.match("^[A-Z]{3,4}$", subject_abbr) or int(catalog_number) <= 10 or int(catalog_number) >= 1000:
         return 
     
     result: str = ""
@@ -79,7 +82,7 @@ def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -
                 }
 
             else:
-                key = keys_csv[loop] 
+                key = KEYS_CSV[loop] 
                 course_info[key] = td
                 loop += 1
         
@@ -93,23 +96,6 @@ def retrieve_course(session_term: str, subject_abbr: str, catalog_number: str) -
 
     return
 
-def write_dict_to_csv(data_list: list[dict], filename: str) -> None:
-    """Import data to a csv file."""
-    if not data_list:
-        return 
-
-    fieldnames = data_list[0].keys()
-    
-    file_exists = os.path.isfile(filename) and os.path.getsize(filename) > 0
-
-    with open(filename, mode='a', newline='', encoding='utf-8') as file:
-        writer = csv.DictWriter(file, fieldnames=fieldnames)
-
-        if not file_exists:
-            writer.writeheader()
-
-        for row in data_list:
-            writer.writerow(row)
 
 def check_values_in_same_csv_row(csv_file_path: str, abbr: str, number: str) -> bool:
     with open(csv_file_path, mode='r') as file:
